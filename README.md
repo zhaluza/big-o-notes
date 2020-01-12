@@ -212,6 +212,7 @@ Insertion, removal, and access are handled through a process known as **hashing*
 - `shift`: O(n)
 - `unshift`: O(n)
 - `concat`: O(n)
+  - Technically **O(n + m)** since you're merging two arrays with unique lengths, but still linear
 - `slice`: O(n)
 - `splice`: O(n)
 - `sort`: O(n \* log n)
