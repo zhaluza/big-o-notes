@@ -13,6 +13,15 @@ For example:
 
 This refers to the **worst-case scenario**: the **upper bound **for runtime.
 
+### Types of Time Complexity (from fast to slow)
+
+![Big O Chart](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmattjmatthias.co%2Fcontent%2Fimages%2Fbig-o-chart.png&f=1&nofb=1)
+
+- **Constant** - O(1)
+- **Logarithmic** - O(log n)
+- **Linear** - O(n)
+- **Quadratic** - O(n<sup>2</sup>)
+
 ### Examples
 
 ```javascript
@@ -72,6 +81,8 @@ function printAllPairs(n) {
 
 **Quadratic: O(n<sup>2</sup>)**
 When an O(n) operation occurs within another O(n) operation — (e.g. a `for` loop nested inside another `for` loop), the overall time complexity is increased to O(n<sup>2</sup>).
+
+---
 
 ## Simplifying Big O Expressions
 
@@ -140,3 +151,68 @@ function double(arr) {
 ```
 
 **O(n)** (**linear**) space complexity — the number of entries stored in the new array will depend on the size of the array entered into the argument.
+
+---
+
+## Logarithmic Complexity
+
+Logarithmic complexity — **O(log _n_)**, equivalent to **O(log<sub>2</sub> n)** — appears in certain cases.
+
+- Certain **searching algorithms** have logarithmic time complexity
+- Efficient **sorting algorithms** involve logarithms
+- **Recursion** sometimes involves logarithmic space complexity
+
+---
+
+## Big O of Objects
+
+### When to Use Objects
+
+- When you don't need order
+- When you need fast access/insertion and removal
+
+**Time Complexity:**
+Insertion, removal, access: O(1)
+Searching: O(n)
+
+Insertion, removal, and access are handled through a process known as **hashing** (using a data structure called a **hash map**).
+
+### Big O of Object Methods
+
+- `Object.keys`: O(n)
+- `Object.values`: O(n)
+- `Object.entries`: O(n)
+- `hasOwnProperty`: O(1)
+
+---
+
+## Big O of Arrays
+
+- **Insertion** & **removal**: depends
+  - Working with the **end** of an array (`push`, `pop`) uses **constant** time - **O(1)**
+  - However, manipulating the **beginning** (`unshift`, `shift`) means that all the other indices need to be adjusted. Therefore, it's **linear** - **O(n)**
+- **Searching**: O(n)
+  - Searching is **constant** since we'll potentially have to go through each element in the array
+- **Access**: O(1)
+  - If you try to access a value by a valid index, JS will go directly to that value (it doesn't need to go through every index preceding it), hence the _constant_ Big O
+
+### When to Use Arrays
+
+- When you need **order**
+  - If order _isn't_ a priority, there are other options
+  - Singly and doubly linked lists also provide order as well as better performance
+- When you need fast access/insertion & removal (with a catch...)
+
+### Big O of Array Methods
+
+**Rule of thumb:** Everything is linear, except for manipulating the **end** of the array (`push`, `pop`) or **sorting**.
+
+- `push`: O(1)
+- `pop`: O(1)
+- `shift`: O(n)
+- `unshift`: O(n)
+- `concat`: O(n)
+- `slice`: O(n)
+- `splice`: O(n)
+- `sort`: O(n \* log n)
+- `forEach`/`map`/`filter`/`reduce` etc.: O(n)
